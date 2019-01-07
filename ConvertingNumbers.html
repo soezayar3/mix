@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+    <title>Number Translation From Myanmar Numbers to English Numbers</title>
+    <p>Insert English or Myanmar Numbers</p>
+    <input type="text" name="inputNumber" width="10" id="inputNumber">
+    <br>
+    <h1 id="demo"></h1>
+</head>
+
+<body>
+    <script type="text/javascript">
+        var englishDigits = [
+            '0',
+            '1',
+            '2',
+            '3',
+            '4',
+            '5',
+            '6',
+            '7',
+            '8',
+            '9'
+        ];
+        var burmeseDigits = [
+            '၀',
+            '၁',
+            '၂',
+            '၃',
+            '၄',
+            '၅',
+            '၆',
+            '၇',
+            '၈',
+            '၉'
+        ];
+       
+
+var inputNo=(document.getElementById('inputNumber'));
+var input=inputNo.value.toString();
+var charArr=input.split('').join(',');
+var myString="";
+var k;
+for(var i=0;i<charArr.length;i++)
+{
+    for(var j=0;j<burmeseDigits.length;j++)
+    {
+        if(charArr[i]==burmeseDigits[j])
+        {
+        	k=j;
+            myString=myString+englishDigits[k];
+        }
+        else if(charArr[i]==englishDigits[j])
+        {
+        	k=j;
+        	myString=myString+burmeseDigits[k]
+        }
+
+    }
+}
+document.getElementById("demo").innerHTML=myString;
+
+
+
+</script>
+<!--coded by Hsu Myint Myat Than
+    hmmt2531997@gmail.com-->
+</body>
+
+</html>
